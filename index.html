@@ -5,147 +5,152 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CV — Грабовий Олексій Сергійович</title>
 
-  <!-- Підключення зовнішнього CSS (Lab 3) -->
+  <!-- Lab 3: external CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <div class="page" id="cv">
+    <header class="header">
+      <div class="header-left">
+        <h1 id="main-title">
+          Грабовий<br>
+          Олексій<br>
+          Сергійович
+        </h1>
+      </div>
 
-  <header>
-    <h1 id="main-title">Грабовий Олексій Сергійович</h1>
-
-    <p>
-      <strong>Статус:</strong> Студент 2 курсу (Кібербезпека)<br>
-      <strong>Місто:</strong> Львів<br>
-      <strong>Телефон:</strong>
-      <a href="tel:+380972859427">+38 (097) 285-94-27</a><br>
-      <strong>Email:</strong>
-      <a href="mailto:oleksii.hrabovyi.kb.2024@lpnu.ua">
-        oleksii.hrabovyi.kb.2024@lpnu.ua
-      </a>
-    </p>
-  </header>
-
-  <main>
-
-    <section class="section">
-      <h2>Про мене</h2>
-      <p>
-        Я студент 2 курсу спеціальності <strong>«Кібербезпека»</strong>.
-        Цікавлюся програмуванням, іграми та ІТ-сферою.
-        Моя мета — розвиватися в ІТ та бути корисним людству у сфері технологій.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Освіта</h2>
-      <article>
-        <h3>Національний університет «Львівська політехніка»</h3>
-        <p>
-          <strong>Спеціальність:</strong> Кібербезпека<br>
-          <strong>Рік вступу:</strong> 2024 – теперішній час
+      <div class="header-right">
+        <p class="contact-line">
+          <strong>Телефон:</strong>
+          <a class="link" href="tel:+380972859427">+38 097 285 94 27</a>
         </p>
-      </article>
-    </section>
-
-    <section class="section">
-      <h2>Навички</h2>
-      <ul>
-        <li>Python (базовий рівень)</li>
-        <li>HTML (базовий рівень)</li>
-        <li>CSS (базовий рівень)</li>
-        <li>C# (базовий рівень)</li>
-        <li>PHP (базовий рівень)</li>
-        <li>Office 365</li>
-        <li>Git Bash та GitHub</li>
-      </ul>
-
-      <p>
-        Приклад використання стрічкових тегів:
-        <strong>strong</strong>,
-        <em>em</em>,
-        <mark>mark</mark>,
-        <code>code</code>.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Досвід / Проєкти</h2>
-
-      <article>
-        <h3>Лабораторні роботи з Python та C#</h3>
-        <p>
-          Виконував лабораторні роботи з програмування, вивчав базові конструкції:
-          змінні, цикли, умови, функції та логіку програм.
+        <p class="contact-line">
+          <strong>Email:</strong>
+          <a class="link" href="mailto:oleksii.hrabovyi.kb.2024@lpnu.ua">oleksii.hrabovyi.kb.2024@lpnu.ua</a>
         </p>
-      </article>
+        <p class="contact-line"><strong>Місто:</strong> Львів</p>
+        <p class="contact-line"><strong>Статус:</strong> Студент (2 курс)</p>
+      </div>
+    </header>
 
-      <article>
-        <h3>Навчальний проєкт: настільна гра на веб-сайті</h3>
-        <p>
-          Розробляв навчальний веб-проєкт настільної гри, працював над
-          структурою сторінки та логікою взаємодії користувача.
-        </p>
-      </article>
+    <hr class="divider">
 
-      <article>
-        <h3>Робота з Git та GitHub</h3>
-        <p>
-          Ініціалізував репозиторії, додавав файли, створював коміти,
-          підключав віддалений репозиторій та завантажував проєкти на GitHub.
-        </p>
-      </article>
-    </section>
+    <main class="layout">
+      <!-- ліва колонка -->
+      <section class="col-left">
+        <section class="block">
+          <h2 class="title">Про мене</h2>
+          <p>
+            Студент 2 курсу спеціальності <strong>Кібербезпека</strong>.
+            Цікавлюсь програмуванням, іграми та ІТ сферою.
+            Мета — розвиватися в ІТ та бути корисним людству.
+          </p>
+        </section>
 
-    <section class="section">
-      <h2>Мови</h2>
-      <table>
-        <caption>Рівень володіння мовами</caption>
-        <thead>
-          <tr>
-            <th>Мова</th>
-            <th>Рівень</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Українська</td>
-            <td>Рідна</td>
-          </tr>
-          <tr>
-            <td>Англійська</td>
-            <td>A2</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+        <section class="block" id="experience">
+          <h2 class="title">Досвід / Проєкти</h2>
 
-    <section class="section">
-      <h2>Контакти</h2>
-      <address>
-        <p>
-          Львів, Україна<br>
-          Телефон:
-          <a href="tel:+380972859427">+38 (097) 285-94-27</a><br>
-          Email:
-          <a href="mailto:oleksii.hrabovyi.kb.2024@lpnu.ua">
-            oleksii.hrabovyi.kb.2024@lpnu.ua
-          </a>
-        </p>
-      </address>
-    </section>
+          <article class="item">
+            <h3 class="item-title">Лабораторні роботи (Python, C#)</h3>
+            <p class="item-meta">Навчальна практика</p>
+            <p>
+              Виконував лабораторні роботи та закріплював основи програмування:
+              умови, цикли, функції, робота з даними.
+            </p>
+          </article>
 
-  </main>
+          <article class="item">
+            <h3 class="item-title">Навчальний проєкт: настільна гра на вебсторінці</h3>
+            <p class="item-meta">Навчальний проєкт</p>
+            <p>
+              Робив структуру сторінки та елементи взаємодії користувача в межах навчального завдання.
+            </p>
+          </article>
 
-  <footer class="section">
-    <p>
-      <small>
-        © 2026. Лабораторна робота №3 — Робота із CSS.
-        Оформлення сторінки виконано за допомогою зовнішнього файлу styles.css,
-        використано селектори, блокову модель та Flexbox.
-      </small>
-    </p>
-  </footer>
+          <article class="item">
+            <h3 class="item-title">Робота з Git Bash та GitHub</h3>
+            <p class="item-meta">Контроль версій</p>
+            <p>
+              Ініціалізація репозиторію, додавання файлів, коміти, підключення remote та push на GitHub.
+            </p>
+          </article>
+        </section>
+      </section>
 
+      <!-- права колонка -->
+      <aside class="col-right">
+        <section class="block">
+          <h2 class="title">Освіта</h2>
+
+          <article class="item small-item">
+            <div class="icon" aria-hidden="true">🎓</div>
+            <div>
+              <h3 class="item-title">Львівська політехніка</h3>
+              <p class="item-meta">Кібербезпека • 2024 — теперішній час</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="block">
+          <h2 class="title">Навички</h2>
+
+          <article class="item small-item">
+            <div class="icon" aria-hidden="true">💻</div>
+            <div>
+              <h3 class="item-title">Технології</h3>
+              <ul class="list">
+                <li>Python (базово)</li>
+                <li>HTML (базово)</li>
+                <li>CSS (базово)</li>
+                <li>C# (базово)</li>
+                <li>PHP (базово)</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="item small-item">
+            <div class="icon" aria-hidden="true">🧰</div>
+            <div>
+              <h3 class="item-title">Інструменти</h3>
+              <ul class="list">
+                <li>Office 365</li>
+                <li>Git Bash</li>
+                <li>GitHub</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <section class="block">
+          <h2 class="title">Мови</h2>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Мова</th>
+                <th>Рівень</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Українська</td>
+                <td>Рідна</td>
+              </tr>
+              <tr>
+                <td>Англійська</td>
+                <td>A2</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <hr class="divider">
+      <p>Лабораторна робота №3. Оформлення виконано за допомогою CSS (external).</p>
+    </footer>
+  </div>
 </body>
 </html>

@@ -1,79 +1,179 @@
-/* Селектор тегу */
+/* Lab 3: CSS оформлення сторінки резюме */
+/* Використано: селектори тегів/класів/id/атрибутів, псевдоклас, box model, Flexbox */
+
+* {
+  box-sizing: border-box; /* box model */
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  background: #f2f2f4;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #111;
+  line-height: 1.45;
 }
 
-/* Селектор тегу + Box Model */
-header {
-    background-color: #1f3c88;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-bottom: 3px solid #000;
+/* контейнер (box model: margin/padding/border) */
+.page {
+  max-width: 960px;
+  margin: 24px auto;
+  background: white;
+  border: 1px solid #e2e2e6;
+  padding: 28px;
 }
 
-/* Селектор класу */
-.section {
-    background-color: white;
-    margin: 20px;
-    padding: 20px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
+/* верхній блок (Flexbox) */
+.header {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
 }
 
-/* Селектор ID */
+.header-left {
+  flex: 1.2;
+}
+
+.header-right {
+  flex: 0.8;
+}
+
+/* selector ID */
 #main-title {
-    font-size: 32px;
-    margin-bottom: 10px;
+  margin: 0;
+  font-size: 44px;
+  line-height: 0.95;
 }
 
-/* Селектори тегів */
-h2 {
-    color: #1f3c88;
-    border-bottom: 2px solid #1f3c88;
-    padding-bottom: 5px;
+/* контакти */
+.contact-line {
+  margin: 6px 0;
 }
 
-p {
-    line-height: 1.6;
+/* розділювач */
+.divider {
+  border: none;
+  height: 1px;
+  background: #d9d9df;
+  margin: 18px 0;
 }
 
-/* Список */
-ul {
-    padding-left: 20px;
+/* основний макет (Flexbox 2 колонки) */
+.layout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
 }
 
-/* Псевдоклас (вимагається в методичці) */
-a:hover {
-    color: red;
-    text-decoration: underline;
+.col-left {
+  flex: 1.25;
 }
 
-/* Таблиця */
-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 10px;
+.col-right {
+  flex: 0.95;
 }
 
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
+/* блоки */
+.block {
+  margin-bottom: 18px;
 }
 
-/* Flexbox (ДУЖЕ ВАЖЛИВО для лаби) */
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.title {
+  margin: 0 0 10px;
+  font-size: 20px;
 }
 
-/* Атрибутний селектор */
+/* елементи досвіду/проєктів */
+.item {
+  padding: 10px 0;
+}
+
+.item + .item {
+  border-top: 1px solid #ededf2;
+}
+
+.item-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.item-meta {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #444;
+}
+
+/* маленькі елементи справа */
+.small-item {
+  display: flex;           /* Flexbox всередині карточки */
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.icon {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #d9d9df; /* box model */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* списки */
+.list {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+/* таблиця */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #cfcfd6;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background: #f4f4f8;
+}
+
+/* селектор атрибутів */
 a[href] {
-    color: #1f3c88;
-    font-weight: bold;
+  color: #1f3c88;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* псевдоклас */
+a:hover {
+  text-decoration: underline;
+}
+
+/* футер */
+.footer {
+  font-size: 13px;
+  color: #333;
+}
+
+/* простий адаптив (щоб на телефоні не ламалось) */
+@media (max-width: 700px) {
+  .header, .layout {
+    flex-direction: column;
+  }
+
+  #main-title {
+    font-size: 36px;
+  }
+
+  .page {
+    margin: 0;
+    border: none;
+    padding: 18px;
+  }
 }
