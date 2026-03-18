@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CV — Грабовий Олексій Сергійович</title>
 
-  <!-- Lab 3: external CSS -->
+  <!-- Lab 3/4: External CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-  <div class="page" id="cv">
+<!-- ВАРІАНТ: заміни 1 на свій номер у журналі -->
+<body id="cv" data-variant="6">
+  <div class="page">
     <header class="header">
       <div class="header-left">
         <h1 id="main-title">
@@ -31,6 +32,19 @@
         </p>
         <p class="contact-line"><strong>Місто:</strong> Львів</p>
         <p class="contact-line"><strong>Статус:</strong> Студент (2 курс)</p>
+
+        <!-- Lab 4: Перемикач денна/нічна тема -->
+        <div class="theme">
+          <label class="switch" title="Перемикач теми">
+            <input type="checkbox" id="themeToggle" aria-label="Перемикач теми">
+            <span class="slider"></span>
+          </label>
+          <span class="theme-text" id="themeText">Тема: авто</span>
+        </div>
+
+        <p class="small">
+          Авто: день 07:00–21:00, інакше ніч.
+        </p>
       </div>
     </header>
 
@@ -69,12 +83,28 @@
           </article>
 
           <article class="item">
-            <h3 class="item-title">Робота з Git Bash та GitHub</h3>
+            <h3 class="item-title">Git Bash та GitHub</h3>
             <p class="item-meta">Контроль версій</p>
             <p>
               Ініціалізація репозиторію, додавання файлів, коміти, підключення remote та push на GitHub.
             </p>
           </article>
+        </section>
+
+        <!-- Lab 4: Коментарі з сервера -->
+        <section class="block" id="commentsBlock">
+          <h2 class="title">Коментарі попередніх роботодавців</h2>
+
+          <p class="small">
+            Завантаження з:
+            <code>https://jsonplaceholder.typicode.com/posts/<span id="variantText">1</span>/comments</code>
+          </p>
+
+          <ol class="comments" id="commentsList">
+            <li>Завантаження...</li>
+          </ol>
+
+          <p class="small" id="commentsStatus"></p>
         </section>
       </section>
 
@@ -82,7 +112,6 @@
       <aside class="col-right">
         <section class="block">
           <h2 class="title">Освіта</h2>
-
           <article class="item small-item">
             <div class="icon" aria-hidden="true">🎓</div>
             <div>
@@ -124,7 +153,6 @@
 
         <section class="block">
           <h2 class="title">Мови</h2>
-
           <table class="table">
             <thead>
               <tr>
@@ -149,8 +177,60 @@
 
     <footer class="footer">
       <hr class="divider">
-      <p>Лабораторна робота №3. Оформлення виконано за допомогою CSS (external).</p>
+
+      <p class="footer-text">
+        Лабораторна №4 (JavaScript): localStorage, fetch, модальне вікно, денна/нічна тема.
+      </p>
+
+      <!-- Lab 4: Вивести всю інформацію з localStorage у футері -->
+      <details class="storage">
+        <summary>Показати дані localStorage</summary>
+        <pre class="storage-dump" id="storageDump">Завантаження...</pre>
+      </details>
     </footer>
   </div>
+
+  <!-- Lab 4: Модальне вікно з формою (з'явиться через 1 хв) -->
+  <div class="modal" id="feedbackModal" aria-hidden="true">
+    <div class="modal__overlay" data-close="true"></div>
+
+    <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" type="button" aria-label="Закрити" data-close="true">×</button>
+
+      <h2 class="modal__title" id="modalTitle">Зворотній зв’язок</h2>
+      <p class="small">
+        Після натискання “Відправити” дані підуть на Formspree і прийдуть на пошту студента.
+      </p>
+
+      <!-- ВСТАВ свій endpoint замість XXXXXXXX -->
+      <form id="feedbackForm" action="https://formspree.io/f/mqeyzqee" method="POST">
+        <label class="field">
+          <span>Ім’я</span>
+          <input name="name" type="text" required placeholder="Ваше ім’я">
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input name="email" type="email" required placeholder="name@example.com">
+        </label>
+
+        <label class="field">
+          <span>Номер телефону</span>
+          <input name="phone" type="tel" required placeholder="+380XXXXXXXXX">
+        </label>
+
+        <label class="field">
+          <span>Текст</span>
+          <textarea name="message" rows="4" required placeholder="Напишіть повідомлення..."></textarea>
+        </label>
+
+        <button class="btn" type="submit">Відправити</button>
+        <p class="small" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lab 4: JS -->
+  <script src="script.js"></script>
 </body>
 </html>

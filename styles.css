@@ -1,110 +1,98 @@
-/* Lab 3: CSS оформлення сторінки резюме */
-/* Використано: селектори тегів/класів/id/атрибутів, псевдоклас, box model, Flexbox */
+/* Lab 4: стилі + теми + модалка */
 
-* {
-  box-sizing: border-box; /* box model */
+/* ===== Змінні теми ===== */
+:root{
+  --bg: #f2f2f4;
+  --page: #ffffff;
+  --text: #111111;
+  --muted: #444444;
+  --border: #d9d9df;
+  --soft: #ededf2;
+  --accent: #1f3c88;
+  --thead: #f4f4f8;
 }
+
+body.theme-dark{
+  --bg: #0f1115;
+  --page: #171a21;
+  --text: #f1f2f4;
+  --muted: #c0c4cc;
+  --border: #2b2f3a;
+  --soft: #242a36;
+  --accent: #7aa2ff;
+  --thead: #1f2430;
+}
+
+/* ===== Box model базово ===== */
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: #f2f2f4;
+  background: var(--bg);
   font-family: Georgia, "Times New Roman", serif;
-  color: #111;
+  color: var(--text);
   line-height: 1.45;
 }
 
-/* контейнер (box model: margin/padding/border) */
+/* контейнер */
 .page {
   max-width: 960px;
   margin: 24px auto;
-  background: white;
-  border: 1px solid #e2e2e6;
+  background: var(--page);
+  border: 1px solid var(--border);
   padding: 28px;
 }
 
-/* верхній блок (Flexbox) */
+/* ===== Header (Flexbox) ===== */
 .header {
   display: flex;
   gap: 24px;
   align-items: flex-start;
 }
 
-.header-left {
-  flex: 1.2;
-}
+.header-left { flex: 1.2; }
+.header-right { flex: 0.8; }
 
-.header-right {
-  flex: 0.8;
-}
-
-/* selector ID */
 #main-title {
   margin: 0;
   font-size: 44px;
   line-height: 0.95;
 }
 
-/* контакти */
-.contact-line {
-  margin: 6px 0;
-}
+.contact-line { margin: 6px 0; }
 
-/* розділювач */
 .divider {
   border: none;
   height: 1px;
-  background: #d9d9df;
+  background: var(--border);
   margin: 18px 0;
 }
 
-/* основний макет (Flexbox 2 колонки) */
+/* ===== Основний макет (Flexbox 2 колонки) ===== */
 .layout {
   display: flex;
   gap: 28px;
   align-items: flex-start;
 }
 
-.col-left {
-  flex: 1.25;
-}
+.col-left { flex: 1.25; }
+.col-right { flex: 0.95; }
 
-.col-right {
-  flex: 0.95;
-}
-
-/* блоки */
-.block {
-  margin-bottom: 18px;
-}
+.block { margin-bottom: 18px; }
 
 .title {
   margin: 0 0 10px;
   font-size: 20px;
 }
 
-/* елементи досвіду/проєктів */
-.item {
-  padding: 10px 0;
-}
+.item { padding: 10px 0; }
+.item + .item { border-top: 1px solid var(--soft); }
 
-.item + .item {
-  border-top: 1px solid #ededf2;
-}
+.item-title { margin: 0 0 4px; font-size: 16px; }
+.item-meta { margin: 0 0 8px; font-size: 13px; color: var(--muted); }
 
-.item-title {
-  margin: 0 0 4px;
-  font-size: 16px;
-}
-
-.item-meta {
-  margin: 0 0 8px;
-  font-size: 13px;
-  color: #444;
-}
-
-/* маленькі елементи справа */
 .small-item {
-  display: flex;           /* Flexbox всередині карточки */
+  display: flex;
   gap: 10px;
   align-items: flex-start;
 }
@@ -112,7 +100,7 @@ body {
 .icon {
   width: 34px;
   height: 34px;
-  border: 1px solid #d9d9df; /* box model */
+  border: 1px solid var(--border);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -120,10 +108,7 @@ body {
 }
 
 /* списки */
-.list {
-  margin: 6px 0 0;
-  padding-left: 18px;
-}
+.list { margin: 6px 0 0; padding-left: 18px; }
 
 /* таблиця */
 .table {
@@ -132,48 +117,170 @@ body {
   margin-top: 6px;
 }
 
-.table th,
-.table td {
-  border: 1px solid #cfcfd6;
+.table th, .table td {
+  border: 1px solid var(--border);
   padding: 8px;
   text-align: left;
 }
 
-.table th {
-  background: #f4f4f8;
-}
+.table th { background: var(--thead); }
 
-/* селектор атрибутів */
+/* ===== Селектор атрибутів + псевдоклас ===== */
 a[href] {
-  color: #1f3c88;
+  color: var(--accent);
   text-decoration: none;
   font-weight: 700;
 }
+a:hover { text-decoration: underline; }
 
-/* псевдоклас */
-a:hover {
-  text-decoration: underline;
+.small { font-size: 13px; color: var(--muted); }
+.footer { font-size: 13px; color: var(--muted); }
+.footer-text { margin: 0 0 10px; }
+
+/* ===== Коментарі ===== */
+.comments { margin: 8px 0 0; padding-left: 18px; }
+.comments li { margin: 8px 0; }
+.comment-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  background: transparent;
+}
+.comment-name { font-weight: 700; }
+.comment-email { color: var(--muted); font-size: 13px; }
+
+/* ===== localStorage dump у футері ===== */
+.storage { margin-top: 10px; }
+.storage summary { cursor: pointer; font-weight: 700; }
+.storage-dump {
+  margin: 10px 0 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  overflow: auto;
+  max-height: 220px;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
-/* футер */
-.footer {
-  font-size: 13px;
-  color: #333;
+/* ===== Перемикач теми ===== */
+.theme {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* простий адаптив (щоб на телефоні не ламалось) */
+.theme-text { font-size: 13px; color: var(--muted); }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+
+.switch input { display: none; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: var(--border);
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background: var(--page);
+  border-radius: 50%;
+  transition: 0.2s;
+  border: 1px solid var(--soft);
+}
+
+.switch input:checked + .slider {
+  background: var(--accent);
+}
+.switch input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+/* ===== Модальне вікно ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 50;
+}
+
+.modal.is-open { display: block; }
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.modal__content {
+  position: relative;
+  width: min(520px, calc(100% - 28px));
+  margin: 10vh auto;
+  background: var(--page);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.modal__title { margin: 0 0 8px; font-size: 20px; }
+
+.modal__close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.field { display: block; margin: 10px 0; }
+.field span { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* адаптив */
 @media (max-width: 700px) {
-  .header, .layout {
-    flex-direction: column;
-  }
-
-  #main-title {
-    font-size: 36px;
-  }
-
-  .page {
-    margin: 0;
-    border: none;
-    padding: 18px;
-  }
+  .header, .layout { flex-direction: column; }
+  #main-title { font-size: 36px; }
+  .page { margin: 0; border: none; padding: 18px; }
 }
