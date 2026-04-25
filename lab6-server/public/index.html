@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №6</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>Лабораторна робота №6</h1>
+      <p>Node.js backend-сервіс для обробки форми зворотного зв'язку</p>
+      <p class="variant">Варіант 6: Fastify + Nodemailer + Mailjet SMTP + zrok</p>
+    </section>
+
+    <section class="info">
+      <h2>Про сайт</h2>
+      <p>
+        Цей сайт працює через локальний Node.js сервер. Сервер роздає статичні файли,
+        приймає дані з форми та надсилає повідомлення на електронну пошту.
+      </p>
+    </section>
+
+    <section class="contact">
+      <h2>Форма зворотного зв'язку</h2>
+
+      <form id="contactForm">
+        <label for="name">Ім'я</label>
+        <input type="text" id="name" placeholder="Введіть ваше ім'я" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Введіть ваш email" required>
+
+        <label for="subject">Тема</label>
+        <input type="text" id="subject" placeholder="Введіть тему повідомлення" required>
+
+        <label for="message">Повідомлення</label>
+        <textarea id="message" placeholder="Введіть повідомлення" required></textarea>
+
+        <button type="submit">Надіслати</button>
+      </form>
+
+      <p id="formStatus"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
